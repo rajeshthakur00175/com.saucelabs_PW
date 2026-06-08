@@ -1,0 +1,10 @@
+Filling 'standard_user' in 'Username' textbox.
+Filling 'secret_sauce' in 'Password' textbox.
+Clicking on 'Login button'.
+Clicking on 'Side-Panel: Expand icon'.
+Asserts that an element has the expected text 'All Items'.
+Asserts that an element has the expected text 'About'.
+Asserts that an element has the expected text 'Logout'.
+Asserts that an element has the expected text 'Reset App State'.
+Asserts that 4 'Side-Panel links' are visible.
+Asserts that 'Side-Panel: Cross icon' is visible.

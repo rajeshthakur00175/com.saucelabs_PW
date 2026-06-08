@@ -1,0 +1,7 @@
+Filling 'standard_user' in 'Username' textbox.
+Filling 'secret_sauce' in 'Password' textbox.
+Clicking on 'Login button'.
+Clicking on 'Side-Panel: Expand icon'.
+Clicking on 'Side-Panel: About link'.
+Asserts that the current page Title matches the expected substring 'Sauce Labs: Cross Browser Testing, Selenium Testing & Mobile Testing'.
+Asserts that the current page URL matches the expected substring 'https://saucelabs.com/'.

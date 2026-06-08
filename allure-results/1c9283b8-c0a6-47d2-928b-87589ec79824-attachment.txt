@@ -1,0 +1,6 @@
+Filling 'standard_user' in 'Username' textbox.
+Filling 'secret_sauce' in 'Password' textbox.
+Clicking on 'Login button'.
+Asserts that 'Footer: Twitter link' has a specific attribute 'href' with the expected value 'https://twitter.com/saucelabs'.
+Asserts that 'Footer: Facebook link' has a specific attribute 'href' with the expected value 'https://www.facebook.com/saucelabs'.
+Asserts that 'Footer: LinkedIn link' has a specific attribute 'href' with the expected value 'https://www.linkedin.com/company/sauce-labs/'.

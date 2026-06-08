@@ -1,0 +1,7 @@
+Filling 'standard_user' in 'Username' textbox.
+Filling 'secret_sauce' in 'Password' textbox.
+Clicking on 'Login button'.
+Asserts that 'Footer: Twitter link' is visible.
+Asserts that 'Footer: Facebook link' is visible.
+Asserts that 'Footer: LinkedIn link' is visible.
+Asserts that an element contains the expected text 'Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy'.

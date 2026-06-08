@@ -1,0 +1,8 @@
+Filling 'standard_user' in 'Username' textbox.
+Filling 'secret_sauce' in 'Password' textbox.
+Clicking on 'Login button'.
+Asserts that 'Side-Panel: Expand icon' is visible.
+Asserts that an element has the expected text 'Swag Labs'.
+Asserts that 'Header: Cart icon' is visible.
+Asserts that 'Header: Swag Labs' has a specific CSS property 'font-size' with the expected value '24px'.
+Asserts that 'Header: Swag Labs' has a specific CSS property 'color' with the expected value 'rgb(19, 35, 34)'.

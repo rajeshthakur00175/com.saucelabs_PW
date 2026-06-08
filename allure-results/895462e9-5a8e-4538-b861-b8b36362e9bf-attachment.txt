@@ -1,0 +1,17 @@
+2026-06-08 11:12:53 [PROD] [CHROMIUM] [Login_with_valid_credentials._Validate_that_User_is_able_to_login_using_valid_credentials.] [INFO] Test Environment: prod
+2026-06-08 11:12:53 [PROD] [CHROMIUM] [Login_with_valid_credentials._Validate_that_User_is_able_to_login_using_valid_credentials.] [INFO] Navigating to the application homepage before each test: Login with valid credentials. Validate that User is able to login using valid credentials.
+2026-06-08 11:12:54 [PROD] [CHROMIUM] [Login_with_valid_credentials._Validate_that_User_is_able_to_login_using_valid_credentials.] [INFO] Navigating to the application homepage : Login with valid credentials. Validate that User is able to login using valid credentials.
+2026-06-08 11:12:54 [PROD] [CHROMIUM] [Login_with_valid_credentials._Validate_that_User_is_able_to_login_using_valid_credentials.] [INFO] Attempting to log in with valid credentials: standard_user / secret_sauce
+Filling 'standard_user' in 'Username' textbox.
+Filling 'secret_sauce' in 'Password' textbox.
+Clicking on 'Login button'.
+2026-06-08 11:12:54 [PROD] [CHROMIUM] [Login_with_valid_credentials._Validate_that_User_is_able_to_login_using_valid_credentials.] [INFO] Verifying Products page heading
+Asserts that an element has the expected text 'Products'.
+2026-06-08 11:12:54 [PROD] [CHROMIUM] [Login_with_valid_credentials._Validate_that_User_is_able_to_login_using_valid_credentials.] [INFO] Verifying header logo
+Asserts that an element has the expected text 'Swag Labs'.
+2026-06-08 11:12:54 [PROD] [CHROMIUM] [Login_with_valid_credentials._Validate_that_User_is_able_to_login_using_valid_credentials.] [INFO] Verifying footer copyright message
+Asserts that an element contains the expected text ' Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy'.
+2026-06-08 11:12:54 [PROD] [CHROMIUM] [Login_with_valid_credentials._Validate_that_User_is_able_to_login_using_valid_credentials.] [INFO] Verifying LinkedIn link in the footer
+Asserts that 'Footer: LinkedIn link' is visible.
+2026-06-08 11:12:54 [PROD] [CHROMIUM] [Login_with_valid_credentials._Validate_that_User_is_able_to_login_using_valid_credentials.] [INFO] Verifying LinkedIn attribute in the footer
+Asserts that 'Footer: LinkedIn link' has a specific attribute 'href' with the expected value 'https://www.linkedin.com/company/sauce-labs/'.

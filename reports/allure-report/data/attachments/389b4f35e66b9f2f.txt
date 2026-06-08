@@ -1,0 +1,8 @@
+Filling 'standard_user' in 'Username' textbox.
+Filling 'secret_sauce' in 'Password' textbox.
+Clicking on 'Login button'.
+Clicking on 'Side-Panel: Expand icon'.
+Waiting for '2' seconds.
+Asserts that 'Side-Panel: Cross icon' is visible.
+Clicking on 'Side-Panel: Cross icon'.
+Asserts that 'Side-Panel: Expand icon' is visible.

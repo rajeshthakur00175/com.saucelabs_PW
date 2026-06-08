@@ -1,0 +1,1 @@
+[{"values":["qa"],"name":"Environment"},{"values":["https://www.saucedemo.com/"],"name":"BaseURL"},{"values":["darwin"],"name":"OS"},{"values":["v24.15.0"],"name":"NodeVersion"},{"values":["false  "],"name":"Headless"},{"values":["1"],"name":"Retries"}]

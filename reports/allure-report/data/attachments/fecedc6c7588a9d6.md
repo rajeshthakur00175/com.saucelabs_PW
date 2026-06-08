@@ -1,0 +1,190 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: components.spec.ts >> [COMPONENTS] >> [Header] Navigate to Cart Page. Validate that User is able to navigate to Cart Page using Cart icon.
+- Location: tests/components.spec.ts:56:7
+
+# Error details
+
+```
+Error: expect(page).toHaveURL(expected) failed
+
+Expected: "https://saucedemo.com/cart.html"
+Received: "https://www.saucedemo.com/cart.html"
+
+Call log:
+  - Expect "toHaveURL" with timeout 5000ms
+    3 × unexpected value "https://www.saucedemo.com/cart.html"
+
+```
+
+```yaml
+- button "Open Menu"
+- img "Open Menu"
+- text: Swag Labs Your Cart QTY Description
+- button "Go back Continue Shopping":
+  - img "Go back"
+  - text: Continue Shopping
+- button "Checkout"
+- contentinfo:
+  - list:
+    - listitem:
+      - link "Twitter":
+        - /url: https://twitter.com/saucelabs
+    - listitem:
+      - link "Facebook":
+        - /url: https://www.facebook.com/saucelabs
+    - listitem:
+      - link "LinkedIn":
+        - /url: https://www.linkedin.com/company/sauce-labs/
+  - text: © 2026 Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy
+```
+
+# Test source
+
+```ts
+  1   | import { expect, Locator, Page } from '@playwright/test';
+  2   | 
+  3   | /**
+  4   |  * Utility class for performing various verification/assertion actions on web elements.
+  5   |  */
+  6   | class VerificationUtils {
+  7   | 
+  8   |     /**
+  9   |      * Asserts that the target element contains the expected text.
+  10  |      * @param targetElement - The Locator of the element to be verified.
+  11  |      * @param expectedText - The text expected to be contained within the element.
+  12  |      */
+  13  |     async elementContainsText(targetElement: Locator, expectedText: string): Promise<void> {
+  14  |         console.log(`Asserts that an element contains the expected text '${expectedText}'.`)
+  15  |         await expect(targetElement).toContainText(expectedText);
+  16  |     }
+  17  | 
+  18  |     /**
+  19  |      * Asserts that the target element's text matches the expected text exactly.
+  20  |      * @param targetElement - The Locator of the element to be verified.
+  21  |      * @param expectedText - The exact text expected to match.
+  22  |      */
+  23  |     async elementHasText(targetElement: Locator, expectedText: string): Promise<void> {
+  24  |         console.log(`Asserts that an element has the expected text '${expectedText}'.`)
+  25  |         await expect(targetElement).toHaveText(expectedText);
+  26  |     }
+  27  | 
+  28  |     /**
+  29  |      * Asserts that the specified element is visible on the page.
+  30  |      * @param targetElement - The Locator of the element to be verified.
+  31  |      * @param targetElementName - A descriptive name of the element for logging purposes.
+  32  |      */
+  33  |     async elementIsVisible(targetElement: Locator, targetElementName: string): Promise<void> {
+  34  |         console.log(`Asserts that '${targetElementName}' is visible.`)
+  35  |         await expect(targetElement).toBeVisible();
+  36  |     }
+  37  | 
+  38  |     /**
+  39  |      * Asserts that the specified element is not visible on the page.
+  40  |      * @param targetElement - The Locator of the element to be verified.
+  41  |      * @param targetElementName - A descriptive name of the element for logging purposes.
+  42  |      */
+  43  |      async elementIsNotVisible(targetElement: Locator, targetElementName: string): Promise<void> {
+  44  |         console.log(`Asserts that '${targetElementName}' is not visible.`)
+  45  |         await expect(targetElement).toBeHidden();
+  46  |     }
+  47  | 
+  48  |     /**
+  49  |      * Asserts that the target element has a specific attribute with the expected value.
+  50  |      * @param targetElement - The Locator of the element to be verified.
+  51  |      * @param targetElementName - A descriptive name of the element for logging purposes.
+  52  |      * @param attribute - The attribute name to check.
+  53  |      * @param attributeValue - The expected value of the attribute.
+  54  |      */
+  55  |     async elementHasAttributeAndHasValue(targetElement: Locator, targetElementName: string, attribute: string, attributeValue: string): Promise<void> {
+  56  |         console.log(`Asserts that '${targetElementName}' has a specific attribute '${attribute}' with the expected value '${attributeValue}'.`)
+  57  |         await expect(targetElement).toHaveAttribute(attribute, attributeValue);
+  58  |     }
+  59  | 
+  60  |     /**
+  61  |      * Asserts that the current page URL contains the expected substring.
+  62  |      * @param page - The Playwright page object.
+  63  |      * @param expectedUrl - The substring to check for in the page URL.
+  64  |      */
+  65  |     async pageContainsUrl(page: Page, expectedUrl: string): Promise<void> {    
+  66  |         const currentPageUrl = await page.url();      
+  67  |         console.log(`Asserts that the current page URL '${currentPageUrl}' contains the expected substring '${expectedUrl}'.`)
+  68  |         expect(currentPageUrl).toContain(expectedUrl);
+  69  |     }
+  70  | 
+  71  |     /**
+  72  |      * Asserts that the current page URL matches the expected URL.
+  73  |      * @param page - The Playwright page object.
+  74  |      * @param expectedUrl - The expected URL to match.
+  75  |      */
+  76  |     async pageHasUrl(page: Page, expectedUrl: string): Promise<void> {
+  77  |         console.log(`Asserts that the current page URL matches the expected substring '${expectedUrl}'.`)
+> 78  |         await expect(page).toHaveURL(expectedUrl);
+      |                            ^ Error: expect(page).toHaveURL(expected) failed
+  79  |     }
+  80  | 
+  81  |     /**
+  82  |      * Asserts that the current page Title contains the expected substring.
+  83  |      * @param page - The Playwright page object.
+  84  |      * @param expectedTitle - The substring to check for in the page title.
+  85  |      */
+  86  |     async pageContainsTitle(page: Page, expectedTitle: string): Promise<void> {    
+  87  |         const currentPageTitle = await page.title();    
+  88  |         console.log(`Asserts that the current page Title '${currentPageTitle}' contains the expected substring '${expectedTitle}'.`)
+  89  |         expect(currentPageTitle).toContain(expectedTitle);
+  90  |     }
+  91  | 
+  92  |     /**
+  93  |      * Asserts that the current page Title matches the expected title.
+  94  |      * @param page - The Playwright page object.
+  95  |      * @param expectedTitle - The expected title to match.
+  96  |      */
+  97  |     async pageHasTitle(page: Page, expectedTitle: string): Promise<void> {        
+  98  |         console.log(`Asserts that the current page Title matches the expected substring '${expectedTitle}'.`)
+  99  |         await expect(page).toHaveTitle(expectedTitle);
+  100 |     }
+  101 | 
+  102 |     /**
+  103 |      * Asserts that the number of elements matching the locator equals the expected count.
+  104 |      *
+  105 |      * @param targetElement - The locator for the target elements.
+  106 |      * @param targetElementName - A friendly name for logging purposes.
+  107 |      * @param expectedCount - The expected number of elements.
+  108 |      */
+  109 |      async elementsCount(targetElement: Locator, targetElementName: string, expectedCount: number): Promise<void> {
+  110 |         if (expectedCount === 1) {
+  111 |             console.log(`Asserts that ${expectedCount} '${targetElementName}' is visible.`);
+  112 |         } else {
+  113 |             console.log(`Asserts that ${expectedCount} '${targetElementName}' are visible.`);
+  114 |         }
+  115 | 
+  116 |         await expect(targetElement).toHaveCount(expectedCount);
+  117 |     }
+  118 | 
+  119 |     /**
+  120 |      * Asserts that an element has a specific CSS property with the expected value.
+  121 |      *
+  122 |      * @param {Locator} targetElement - The target element to check.
+  123 |      * @param {string} targetElementName - The name or identifier of the target element.
+  124 |      * @param {string} property - The CSS property to check.
+  125 |      * @param {string} propertyValue - The expected value of the CSS property.
+  126 |      */ 
+  127 |     async elementHasCSSPropertyAndHasValue(targetElement: Locator, targetElementName: string, property: string, propertyValue: string): Promise<void> {
+  128 |         console.log(`Asserts that '${targetElementName}' has a specific CSS property '${property}' with the expected value '${propertyValue}'.`)
+  129 |         await expect(targetElement).toHaveCSS(property, propertyValue);
+  130 |     }
+  131 | }
+  132 | 
+  133 | 
+  134 | /**
+  135 |  * Exports the VerificationUtils class as the default export of this module.
+  136 |  * @module VerificationUtils
+  137 |  */
+  138 | export default new VerificationUtils();
+```
