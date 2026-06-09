@@ -1,4 +1,4 @@
-#### Everything is ushed for public to use this repo, so that public can make changes and use it.
+#### Everything is pushed for public to use this repo, so that public can make changes and use it.
 
 
 

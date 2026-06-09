@@ -10,7 +10,6 @@ const basePage = new BasePage();
  * LoginPage class handles operations related to the login page of the application.
  */
 class LoginPage {
-    
     private page: Page;
     readonly textbox_username: Locator;
     readonly textbox_password: Locator;
